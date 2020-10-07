@@ -28,8 +28,17 @@ class App extends React.Component {
     //render에선 this.addTodo로 해야함.. 클래스에서 this...란?
 
     updatingTodo = (updatedTodo) => {
+        const todos = this.state.todos.slice();
+        const { id, text } = updatedTodo;
+        
+        for(var i = 0; i < todos.length; i++) {
+            if(todos[i].id === updatedTodo.id){
+                todos[i].text = updatedTodo.text;
+            }
+        }
+        
         this.setState({
-            todos: [...this.state.todos, updatedTodo]
+            todos: [...todos]
         })
     }
     

@@ -21,6 +21,7 @@ class ListWrap extends React.Component {
                                 <List 
                                     key={key}
                                     list={list}
+                                    updatingTodo={this.props.updatingTodo}
                                 ></List>
                             )
                         })

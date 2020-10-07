@@ -16,7 +16,9 @@ class List extends React.Component {
     }
     
     updatingContent = e => {
-        if(e.keyCode === 'Enter') {
+        console.log(9);
+        if(e.key === 'Enter') {
+            console.log(11111);
             this.props.updatingTodo({
                 ...this.props.list,
                 text: e.target.value
