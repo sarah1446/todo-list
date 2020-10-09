@@ -11,11 +11,13 @@ class App extends React.Component {
             todos : [
                 {
                     text: 'good moring!',
-                    id: 6783
+                    id: 6783,
+                    activeMode: true
                 },
                 {
                     text: 'studying javascript!',
-                    id: 10
+                    id: 10,
+                    activeMode: true
                 }
             ]
         }
@@ -30,7 +32,7 @@ class App extends React.Component {
         this.setState({
             todos: [
                 ...this.state.todos, 
-                {text:todo, id:uuidv4()}
+                {text:todo, id:uuidv4(), activeMode: true}
             ],
         })
     }

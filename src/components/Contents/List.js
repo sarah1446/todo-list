@@ -5,6 +5,7 @@ class List extends React.Component {
         super(props);
         this.state = {
             updatingMode: false,
+            activeMode: true
         }
     }
     
@@ -38,6 +39,17 @@ class List extends React.Component {
         this.props.deleteTodo( this.props.list)
     }
     
+    toggleSelect = e => {
+        if(e.target.checked) { //체크박스 체크하면  
+            this.setState({
+                activeMode: false
+            })
+        }else{
+            this.setState({
+                activeMode: true
+            })
+        }
+    }
     
     
     render() {
@@ -49,7 +61,7 @@ class List extends React.Component {
                 onMouseOver={this.listHover}
                 onMouseOut={this.listHoverOut}
             >
-                <input type="checkbox" className="toggle"/>
+                <input type="checkbox" className="toggle" onClick={this.toggleSelect}/>
                 {
                     this.state.updatingMode === true ?
                         <input type="text" 
@@ -60,9 +72,12 @@ class List extends React.Component {
                             autoFocus
                         />
                     :
-                        <p>
-                            {text}
-                        </p>
+                    (
+                        this.state.activeMode === true ?
+                            <p>{text}</p>
+                        :
+                            <p className="completed">{text}</p>
+                    )
                 }
                 <span 
                 className="deleteBtn"

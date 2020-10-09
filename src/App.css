@@ -42,7 +42,6 @@
     border: 1px solid blue;
 }
 .todo-list p {
-    background-color:#ddd;
     display: inline-block;
     width: 250px;
 }
@@ -54,4 +53,9 @@
 }
 .todo-list:hover .deleteBtn{
     display: inline-block;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: #ddd;
 }
