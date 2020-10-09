@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -35,4 +35,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.todo-list {
+    border: 1px solid blue;
+}
+.todo-list p {
+    background-color:#ddd;
+    display: inline-block;
+    width: 250px;
+}
+.todo-list input[type="text"] {
+    /* width: 100%; */
+}
+.deleteBtn {
+    display: none
+}
+.todo-list:hover .deleteBtn{
+    display: inline-block;
 }

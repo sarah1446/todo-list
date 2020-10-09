@@ -9,21 +9,30 @@ class App extends React.Component {
         super(props);
         this.state = {
             todos : [
-                
+                {
+                    text: 'good moring!',
+                    id: 6783
+                },
+                {
+                    text: 'studying javascript!',
+                    id: 10
+                }
             ]
         }
     }
     
     addTodo = ( todo ) => {
-        const newTodo = this.state.todos;
-        newTodo.push({
-            text: todo, //todoText일땐 안됨
-            id: uuidv4(),
-        });
+        // const newTodo = this.state.todos.slice();
+        // newTodo.push({
+        //     text: todo, //todoText일땐 안됨
+        //     id: uuidv4(),
+        // });
         this.setState({
-            todos: [...newTodo],
+            todos: [
+                ...this.state.todos, 
+                {text:todo, id:uuidv4()}
+            ],
         })
-        // console.log(this.state)
     }
     //render에선 this.addTodo로 해야함.. 클래스에서 this...란?
 
@@ -36,12 +45,19 @@ class App extends React.Component {
                 todos[i].text = updatedTodo.text;
             }
         }
-        
         this.setState({
             todos: [...todos]
         })
     }
     
+    deleteTodo = (deleteTodo) => {
+        //console.log(id)
+        const todos = this.state.todos.slice();
+        
+        this.setState({
+            todos: todos.filter(list => list !== deleteTodo)
+        })
+    }
     
     
     render() {
@@ -51,6 +67,7 @@ class App extends React.Component {
                 <ListWrap 
                     todos={this.state.todos}
                     updatingTodo={this.updatingTodo}
+                    deleteTodo={this.deleteTodo}
                 ></ListWrap>
             </div>
         )

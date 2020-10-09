@@ -4,21 +4,20 @@ class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            updatingMode: false
+            updatingMode: false,
         }
     }
     
     updatingMode = e => {
-        this.setState({
+        this.setState({ // input나오게 함
             updatingMode: true
         })
-        // console.log('zz');
+        e.target.focus();
     }
     
     updatingContent = e => {
-        console.log(9);
-        if(e.key === 'Enter') {
-            console.log(11111);
+       
+        if(e.key === 'Enter' ) {
             this.props.updatingTodo({
                 ...this.props.list,
                 text: e.target.value
@@ -26,25 +25,49 @@ class List extends React.Component {
             this.setState({
                 updatingMode: false
             })
-            // 클릭시 닫히게 하는건?
         }
     }
+    
+    hideInput = () => {
+        this.setState({
+            updatingMode: false,
+        })
+    }
+    
+    deleteTodo = e => {
+        this.props.deleteTodo( this.props.list)
+    }
+    
     
     
     render() {
         const { text, id } = this.props.list;
         return(
             
-            <li onDoubleClick={this.updatingMode}>
+            <li className="todo-list"
+                onDoubleClick={this.updatingMode}
+                onMouseOver={this.listHover}
+                onMouseOut={this.listHoverOut}
+            >
+                <input type="checkbox" className="toggle"/>
                 {
                     this.state.updatingMode === true ?
                         <input type="text" 
+                            className="todo-input"
                             defaultValue={text} 
                             onKeyDown={this.updatingContent}
+                            onBlur={this.hideInput}
+                            autoFocus
                         />
                     :
-                        <p>{text}</p>
+                        <p>
+                            {text}
+                        </p>
                 }
+                <span 
+                className="deleteBtn"
+                onClick={this.deleteTodo}
+                >x</span>
             </li>
         )
     }
