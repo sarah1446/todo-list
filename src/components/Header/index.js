@@ -1,6 +1,6 @@
 import React from 'react';
 import AddTodo from './AddTodo';
-// import ToggleTodo from './ToggleTodo';
+import ToggleTodo from './ToggleTodo';
 
 class Header extends React.Component {
     constructor(props) {
@@ -13,6 +13,7 @@ class Header extends React.Component {
     render() {
         return(
             <div>
+                <ToggleTodo toggleAll={this.props.toggleAll}></ToggleTodo>
                 <AddTodo addTodo={this.props.addTodo}></AddTodo>
             </div>
         )

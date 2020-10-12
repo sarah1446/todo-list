@@ -5,7 +5,7 @@ class List extends React.Component {
         super(props);
         this.state = {
             updatingMode: false,
-            activeMode: true
+            completed: true
         }
     }
     
@@ -16,8 +16,7 @@ class List extends React.Component {
         e.target.focus();
     }
     
-    updatingContent = e => {
-       
+    updatingContent = e => {   
         if(e.key === 'Enter' ) {
             this.props.updatingTodo({
                 ...this.props.list,
@@ -39,20 +38,35 @@ class List extends React.Component {
         this.props.deleteTodo( this.props.list)
     }
     
+    
+    // shouldComponentUpdate = () => {
+    //     console.log('전체선택을 눌렀다면!! 현재 list 컴포넌트!')
+        
+    // }
+    
+    toggleAll = () => {
+        this.toggleSelect();
+    }
+    
     toggleSelect = e => {
         if(e.target.checked) { //체크박스 체크하면  
             this.setState({
-                activeMode: false
+                // completed: false
+                completed: !this.state.completed
             })
         }else{
             this.setState({
-                activeMode: true
+                // completed: true
+                completed: !this.state.completed
             })
         }
     }
     
     
     render() {
+        // console.log('list')
+        // console.log(this.props.list)
+        // console.log('list')
         const { text, id } = this.props.list;
         return(
             
@@ -61,7 +75,7 @@ class List extends React.Component {
                 onMouseOver={this.listHover}
                 onMouseOut={this.listHoverOut}
             >
-                <input type="checkbox" className="toggle" onClick={this.toggleSelect}/>
+                <input type="checkbox" className="toggle" onClick={this.toggleSelect} checked={!this.state.completed}/>
                 {
                     this.state.updatingMode === true ?
                         <input type="text" 
@@ -73,7 +87,7 @@ class List extends React.Component {
                         />
                     :
                     (
-                        this.state.activeMode === true ?
+                        this.state.completed === true ?
                             <p>{text}</p>
                         :
                             <p className="completed">{text}</p>

@@ -12,17 +12,16 @@ class App extends React.Component {
                 {
                     text: 'good moring!',
                     id: 6783,
-                    activeMode: true
+                    completed: true
                 },
                 {
                     text: 'studying javascript!',
                     id: 10,
-                    activeMode: true
+                    completed: true
                 }
             ]
         }
     }
-    
     addTodo = ( todo ) => {
         // const newTodo = this.state.todos.slice();
         // newTodo.push({
@@ -32,7 +31,7 @@ class App extends React.Component {
         this.setState({
             todos: [
                 ...this.state.todos, 
-                {text:todo, id:uuidv4(), activeMode: true}
+                {text:todo, id:uuidv4(), completed: true}
             ],
         })
     }
@@ -61,15 +60,29 @@ class App extends React.Component {
         })
     }
     
+    toggleAll = () => {
+        //리스트의 체크박스에 체크되게 
+        const newTodos = this.state.todos.slice();
+        for(var i =0; i < newTodos.length; i++) {
+            newTodos[i].completed = false;
+        }
+        this.setState({
+            todos : [...newTodos]
+        })
+    }
     
     render() {
         return(
             <div className="App">
-                <Header addTodo={this.addTodo}></Header>
+                <Header 
+                    addTodo={this.addTodo}
+                    toggleAll={this.toggleAll}
+                ></Header>
                 <ListWrap 
                     todos={this.state.todos}
                     updatingTodo={this.updatingTodo}
                     deleteTodo={this.deleteTodo}
+                    // toggleAll={this.toggleAll}
                 ></ListWrap>
             </div>
         )
