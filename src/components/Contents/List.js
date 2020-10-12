@@ -45,20 +45,20 @@ class List extends React.Component {
     // }
     
     toggleSelect = e => {
-        if(e.target.checked) { //체크박스 체크하면  
+        // console.log(this.props.list.id)
+        if(e.target.checked) { //체크박스 체크하면
+            //app의 state에 반영이 안된듯!!  
             this.setState({
-                completed: !this.state.completed
+                completed: true
             })
-            console.log(this.props.list)
         }else{
             this.setState({
-                completed: !this.state.completed
+                completed: false
             })
-            console.log(this.props.list)
         }
-       
-        // console.log(this.)
+        this.props.toggleSelect(this.props.list.id)
     }
+    
     
     
     render() {

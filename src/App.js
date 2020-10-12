@@ -18,7 +18,7 @@ class App extends React.Component {
                 {
                     text: 'studying javascript!',
                     id: 10,
-                    completed: true
+                    completed: false
                 }
             ],
             leftCount: 1
@@ -74,7 +74,22 @@ class App extends React.Component {
         console.log('app - 전체')
     }
  
-      
+    toggleSelect = ( id) => {
+        // console.log(1)
+        console.log(id)
+        console.log(this.state.todos)
+        const todos = this.state.todos.slice();
+        for(var i=0; i < todos.length; i++) {
+            if(todos[i].id === id) {
+                todos[i].completed = !todos[i].completed;
+            }
+        }
+        this.setState({
+            todos : [ ...todos]
+        })
+    }
+   
+    
     
     render() {
         return(
@@ -87,6 +102,8 @@ class App extends React.Component {
                     todos={this.state.todos}
                     updatingTodo={this.updatingTodo}
                     deleteTodo={this.deleteTodo}
+                    test={this.test}
+                    toggleSelect={this.toggleSelect}
                     // toggleAll={this.toggleAll}
                 ></ListWrap>
                 <Footer ></Footer>

@@ -10,8 +10,13 @@ class ListWrap extends React.Component {
         }
     }
     
+    
+    
     render() {
-        //console.log(this.props.todos)
+        // console.log(this.props.todos)
+        // console.log( this.props.todos.map((item)=> !item.completed).length)
+        
+       
         return(
             <Fragment>
                 <ul>
@@ -23,6 +28,7 @@ class ListWrap extends React.Component {
                                     list={list}
                                     updatingTodo={this.props.updatingTodo}
                                     deleteTodo={this.props.deleteTodo}
+                                    toggleSelect={this.props.toggleSelect}
                                 ></List>
                             )
                         })
