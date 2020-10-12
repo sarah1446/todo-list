@@ -5,7 +5,7 @@ class List extends React.Component {
         super(props);
         this.state = {
             updatingMode: false,
-            completed: true
+            completed: false
         }
     }
     
@@ -39,27 +39,25 @@ class List extends React.Component {
     }
     
     
-    // shouldComponentUpdate = () => {
-    //     console.log('전체선택을 눌렀다면!! 현재 list 컴포넌트!')
-        
-    // }
     
-    toggleAll = () => {
-        this.toggleSelect();
-    }
+    // toggleAll = () => {
+    //     this.toggleSelect();
+    // }
     
     toggleSelect = e => {
         if(e.target.checked) { //체크박스 체크하면  
             this.setState({
-                // completed: false
                 completed: !this.state.completed
             })
+            console.log(this.props.list)
         }else{
             this.setState({
-                // completed: true
                 completed: !this.state.completed
             })
+            console.log(this.props.list)
         }
+       
+        // console.log(this.)
     }
     
     
@@ -75,7 +73,7 @@ class List extends React.Component {
                 onMouseOver={this.listHover}
                 onMouseOut={this.listHoverOut}
             >
-                <input type="checkbox" className="toggle" onClick={this.toggleSelect} checked={!this.state.completed}/>
+                <input type="checkbox" className="toggle" onClick={this.toggleSelect} checked={this.state.completed}/>
                 {
                     this.state.updatingMode === true ?
                         <input type="text" 
@@ -88,9 +86,9 @@ class List extends React.Component {
                     :
                     (
                         this.state.completed === true ?
-                            <p>{text}</p>
-                        :
                             <p className="completed">{text}</p>
+                        :
+                            <p>{text}</p>
                     )
                 }
                 <span 
