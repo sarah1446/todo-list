@@ -73,7 +73,7 @@ class List extends React.Component {
                 onMouseOver={this.listHover}
                 onMouseOut={this.listHoverOut}
             >
-                <input type="checkbox" className="toggle" onClick={this.toggleSelect} checked={this.state.completed}/>
+                <input type="checkbox" className="toggle" onChange={this.toggleSelect} checked={this.state.completed}/>
                 {
                     this.state.updatingMode === true ?
                         <input type="text" 

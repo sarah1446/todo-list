@@ -9,27 +9,20 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos : [
-                {
-                    text: 'good moring!',
-                    id: 6783,
-                    completed: true
-                },
-                {
-                    text: 'studying javascript!',
-                    id: 10,
-                    completed: false
-                }
-            ],
-            leftCount: 1
+            todos : [],
+            totalCount: 0,
+            leftCount: 0
         }
     }
+    
     addTodo = ( todo ) => {
         this.setState({
             todos: [
                 ...this.state.todos, 
-                {text:todo, id:uuidv4(), completed: true}
+                {text:todo, id:uuidv4(), completed: false}
             ],
+            totalCount: this.state.todos.length,
+            leftCount: this.state.todos.filter((todo) => !todo.completed).length,
         })
     }
     //render에선 this.addTodo로 해야함.. 클래스에서 this...란?
@@ -50,34 +43,14 @@ class App extends React.Component {
     deleteTodo = (deleteTodo) => {
         const todos = this.state.todos.slice();
         this.setState({
-            todos: todos.filter(list => list !== deleteTodo)
+            todos: [...todos.filter(list => list !== deleteTodo)],
+            totalCount: this.state.todos.length,
+            leftCount: this.state.todos.filter((todo) => !todo.completed).length
         })
     }
-    
-    // toggleAll = () => {
-    //     //리스트의 체크박스에 체크되게 
-    //     const newTodos = this.state.todos.slice();
-    //     for(var i =0; i < newTodos.length; i++) {
-    //         newTodos[i].completed = false;
-    //     }
-    //     this.setState({
-    //         todos : [...newTodos]
-    //     })
-    // }
-    // componentDidUpdate() {
-    //     console.log('변화있을떄마다')
-    //       const left = this.state.todos.filter(c => c.completed === true);
-    //     console.log(left);
-    // }
-   
-    toggleAll = () => {
-        console.log('app - 전체')
-    }
  
-    toggleSelect = ( id) => {
-        // console.log(1)
-        console.log(id)
-        console.log(this.state.todos)
+    toggleSelect = (id) => {
+        // console.log(this.state.todos)
         const todos = this.state.todos.slice();
         for(var i=0; i < todos.length; i++) {
             if(todos[i].id === id) {
@@ -85,13 +58,23 @@ class App extends React.Component {
             }
         }
         this.setState({
-            todos : [ ...todos]
+            todos : [ ...todos],
+            leftCount: this.state.todos.filter((todo) => !todo.completed).length
         })
     }
+    
+    // leftCount = () => {
+    //     const left = this.state.todos.filter((todo) => !todo.completed).length;
+    //     console.log(left)
+    // }
    
     
     
     render() {
+        console.log('총 개수 ' + this.state.todos.length)
+        console.log('남은거 ' + this.state.todos.filter((todo) => !todo.completed).length)
+        //왜 여기에두면 정상인데, addTodo안에 넣으면 하나씩 느리게 찍히지?
+        // console.log(this.state.todos) 
         return(
             <div className="App">
                 <Header 
@@ -102,11 +85,12 @@ class App extends React.Component {
                     todos={this.state.todos}
                     updatingTodo={this.updatingTodo}
                     deleteTodo={this.deleteTodo}
-                    test={this.test}
                     toggleSelect={this.toggleSelect}
-                    // toggleAll={this.toggleAll}
                 ></ListWrap>
-                <Footer ></Footer>
+                <Footer 
+                    totalCount={this.state.totalCount}
+                    leftCount={this.state.leftCount}
+                ></Footer>
             </div>
         )
     }

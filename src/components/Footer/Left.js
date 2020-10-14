@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 
 class Left extends React.Component {
@@ -10,9 +10,14 @@ class Left extends React.Component {
     }
     
     
+    
+    
     render() {
         return(
-            <div> {this.props.leftCount} 남음</div>
+            <Fragment>
+                <div> {this.props.leftCount} 남음</div>
+                <div> 총 개수: {this.props.totalCount}</div>
+            </Fragment>
         )
     }
 }

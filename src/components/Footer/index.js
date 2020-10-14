@@ -6,7 +6,10 @@ class Footer extends React.Component {
     render() {
         return(
             <div>
-                <Left></Left>
+                <Left 
+                    totalCount={this.props.totalCount}
+                    leftCount={this.props.leftCount}
+                ></Left>
             </div>
         )
     }
