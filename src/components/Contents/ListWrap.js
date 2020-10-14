@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import List from './List';
-// import App from '../App';
 
 class ListWrap extends React.Component {
     constructor(props) {
@@ -10,13 +9,7 @@ class ListWrap extends React.Component {
         }
     }
     
-    
-    
     render() {
-        // console.log(this.props.todos)
-        // console.log( this.props.todos.map((item)=> !item.completed).length)
-        
-       
         return(
             <Fragment>
                 <ul>

@@ -38,16 +38,8 @@ class List extends React.Component {
         this.props.deleteTodo( this.props.list)
     }
     
-    
-    
-    // toggleAll = () => {
-    //     this.toggleSelect();
-    // }
-    
     toggleSelect = e => {
-        // console.log(this.props.list.id)
-        if(e.target.checked) { //체크박스 체크하면
-            //app의 state에 반영이 안된듯!!  
+        if(e.target.checked) {
             this.setState({
                 completed: true
             })
