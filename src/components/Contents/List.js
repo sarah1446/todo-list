@@ -35,7 +35,7 @@ class List extends React.Component {
     }
     
     deleteTodo = e => {
-        this.props.deleteTodo( this.props.list)
+        this.props.deleteTodo(this.props.list)
     }
     
     toggleSelect = e => {
@@ -57,7 +57,7 @@ class List extends React.Component {
         // console.log('list')
         // console.log(this.props.list)
         // console.log('list')
-        const { text, id } = this.props.list;
+        const { text } = this.props.list;
         return(
             
             <li className="todo-list"

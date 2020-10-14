@@ -17,12 +17,12 @@ class ListWrap extends React.Component {
                         this.props.todos.map((list, key) => {
                             return(
                                 <List 
-                                    key={key}
+                                    key={list.id}
                                     list={list}
                                     updatingTodo={this.props.updatingTodo}
                                     deleteTodo={this.props.deleteTodo}
                                     toggleSelect={this.props.toggleSelect}
-                                ></List>
+                                />
                             )
                         })
                     }
