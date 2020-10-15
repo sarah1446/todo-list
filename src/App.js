@@ -25,7 +25,7 @@ class App extends React.Component {
 
     updatingTodo = (updatedTodo) => {
         const todos = this.state.todos.slice();
-        for(var i = 0; i < todos.length; i++) {
+        for(let i = 0; i < todos.length; i++) {
             if(todos[i].id === updatedTodo.id){
                 todos[i].text = updatedTodo.text;
             }
@@ -44,7 +44,7 @@ class App extends React.Component {
  
     toggleSelect = (id) => {
         const todos = this.state.todos.slice();
-        for(var i=0; i < todos.length; i++) {
+        for(let i=0; i < todos.length; i++) {
             if(todos[i].id === id) {
                 todos[i].completed = !todos[i].completed;
             }
@@ -53,6 +53,17 @@ class App extends React.Component {
             todos : [ ...todos],
         })
     }
+    
+    
+    
+    clearCompleted = () => {
+        const todos = this.state.todos.slice();
+        this.setState({
+            todos: [...todos.filter((todo)=> !todo.completed)]
+        })
+    }
+    
+    
     
     render() {
         const leftCount = this.state.todos.filter((todo) => !todo.completed).length;
@@ -72,6 +83,7 @@ class App extends React.Component {
                 <Footer 
                     totalCount={this.state.todos.length}
                     leftCount={leftCount}
+                    clearCompleted={this.clearCompleted} 
                 />
             </div>
         )

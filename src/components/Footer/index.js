@@ -1,5 +1,7 @@
 import React from 'react';
 import Left from './Left';
+import Showing from './Showing';
+import ClearCompleted from './ClearCompleted';
 
 class Footer extends React.Component {
     
@@ -9,7 +11,9 @@ class Footer extends React.Component {
                 <Left 
                     totalCount={this.props.totalCount}
                     leftCount={this.props.leftCount}
-                ></Left>
+                />
+                <Showing/>
+                <ClearCompleted clearCompleted={this.props.clearCompleted}/>
             </div>
         )
     }
