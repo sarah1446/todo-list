@@ -9,8 +9,7 @@ class Showing extends React.Component {
     }
     
     todoShow = (e) => {
-        console.dir(e.target)
-        this.props.todoShow(e.target.textContent)
+        this.props.todoShow(e.target.textContent) // 수정
     }
     
     render() {
