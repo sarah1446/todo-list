@@ -54,18 +54,18 @@ class List extends React.Component {
     
     
     render() {
-        // console.log('list')
-        // console.log(this.props.list)
-        // console.log('list')
         const { text } = this.props.list;
+        
         return(
-            
             <li className="todo-list"
                 onDoubleClick={this.updatingMode}
                 onMouseOver={this.listHover}
                 onMouseOut={this.listHoverOut}
             >
-                <input type="checkbox" className="toggle" onChange={this.toggleSelect} checked={this.props.list.completed || this.state.completed}/>
+                <input type="checkbox" className="toggle" 
+                    onChange={this.toggleSelect} 
+                    checked={this.props.list.completed || this.state.completed}
+                />
                 {
                     this.state.updatingMode === true ?
                         <input type="text" 

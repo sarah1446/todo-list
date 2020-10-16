@@ -1,23 +1,17 @@
 import React, { Fragment } from 'react';
 
 class Showing extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todoShow: 'all'
-        }
-    }
-    
     todoShow = (e) => {
-        this.props.todoShow(e.target.textContent) // 수정
+        const btnId = e.target.dataset.id;
+        this.props.todoShow(btnId)
     }
     
     render() {
         return(
             <Fragment>
-               <button onClick={this.todoShow}>All</button>
-               <button onClick={this.todoShow}>Active</button>
-               <button onClick={this.todoShow}>Completed</button>
+               <button onClick={this.todoShow} data-id="all">All</button>
+               <button onClick={this.todoShow} data-id="active">Active</button>
+               <button onClick={this.todoShow} data-id="completed">Completed</button>
             </Fragment>
         )
     }

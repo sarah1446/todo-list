@@ -10,7 +10,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             todos : [],
-            todoShowOption: 'All'
+            todoShowBtn: 'all'
         }
     }
     
@@ -64,34 +64,24 @@ class App extends React.Component {
         })
     }
     
-    todoShow = (option) => {
+    todoShow = (btnId) => {
         this.setState({
-            todoShowOption: option
+            todoShowBtn: btnId
         })
     }
     
     render() {
         const leftCount = this.state.todos.filter((todo) => !todo.completed).length;
-        
         let todos = [];
         
-        if(this.state.todoShowOption === 'All') {
+        if(this.state.todoShowBtn === 'all') {
             todos  =  this.state.todos;
-            console.log(this.state.todos)
-            console.log('all', todos)
-        }else if(this.state.todoShowOption === 'Active') {
+        }else if(this.state.todoShowBtn === 'active') {
             todos  =  this.state.todos.filter(todo => !todo.completed);
-            console.log(this.state.todos)
-            console.log('Active', todos)
-        }else if(this.state.todoShowOption === 'Completed') {
+        }else if(this.state.todoShowBtn === 'completed') {
             todos  =  this.state.todos.filter(todo => todo.completed);
-            console.log(this.state.todos)
-            console.log('Completed', todos)
         }
         
-        // console.log(this.state.todos) //정상
-        // console.log('todos', todos) // 안들어감
-        // console.log(this.state.todoShowOption)
         return(
             <div className="App">
                 <Header 
@@ -107,9 +97,8 @@ class App extends React.Component {
                 <Footer 
                     totalCount={this.state.todos.length}
                     leftCount={leftCount}
-                    clearCompleted={this.clearCompleted} 
-                    
                     todoShow={this.todoShow}
+                    clearCompleted={this.clearCompleted} 
                 />
             </div>
         )
