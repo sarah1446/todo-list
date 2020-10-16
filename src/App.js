@@ -10,6 +10,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             todos : [],
+            todoShowOption: 'All'
         }
     }
     
@@ -63,11 +64,34 @@ class App extends React.Component {
         })
     }
     
-    
+    todoShow = (option) => {
+        this.setState({
+            todoShowOption: option
+        })
+    }
     
     render() {
         const leftCount = this.state.todos.filter((todo) => !todo.completed).length;
         
+        let todos = [];
+        
+        if(this.state.todoShowOption === 'All') {
+            todos  =  this.state.todos;
+            console.log(this.state.todos)
+            console.log('all', todos)
+        }else if(this.state.todoShowOption === 'Active') {
+            todos  =  this.state.todos.filter(todo => !todo.completed);
+            console.log(this.state.todos)
+            console.log('Active', todos)
+        }else if(this.state.todoShowOption === 'Completed') {
+            todos  =  this.state.todos.filter(todo => todo.completed);
+            console.log(this.state.todos)
+            console.log('Completed', todos)
+        }
+        
+        // console.log(this.state.todos) //정상
+        // console.log('todos', todos) // 안들어감
+        // console.log(this.state.todoShowOption)
         return(
             <div className="App">
                 <Header 
@@ -75,7 +99,7 @@ class App extends React.Component {
                     toggleAll={this.toggleAll}
                 />
                 <ListWrap 
-                    todos={this.state.todos}
+                    todos={todos} 
                     updatingTodo={this.updatingTodo}
                     deleteTodo={this.deleteTodo}
                     toggleSelect={this.toggleSelect}
@@ -84,6 +108,8 @@ class App extends React.Component {
                     totalCount={this.state.todos.length}
                     leftCount={leftCount}
                     clearCompleted={this.clearCompleted} 
+                    
+                    todoShow={this.todoShow}
                 />
             </div>
         )
@@ -91,3 +117,4 @@ class App extends React.Component {
 }
 
 export default App;
+

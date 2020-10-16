@@ -12,7 +12,9 @@ class Footer extends React.Component {
                     totalCount={this.props.totalCount}
                     leftCount={this.props.leftCount}
                 />
-                <Showing/>
+                <Showing
+                    todoShow={this.props.todoShow}
+                />
                 <ClearCompleted clearCompleted={this.props.clearCompleted}/>
             </div>
         )

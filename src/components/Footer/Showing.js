@@ -8,13 +8,17 @@ class Showing extends React.Component {
         }
     }
     
+    todoShow = (e) => {
+        console.dir(e.target)
+        this.props.todoShow(e.target.textContent)
+    }
     
     render() {
         return(
             <Fragment>
-               <button>All</button>
-               <button>Active</button>
-               <button>Completed</button>
+               <button onClick={this.todoShow}>All</button>
+               <button onClick={this.todoShow}>Active</button>
+               <button onClick={this.todoShow}>Completed</button>
             </Fragment>
         )
     }

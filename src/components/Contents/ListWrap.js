@@ -10,6 +10,8 @@ class ListWrap extends React.Component {
     }
     
     render() {
+        // console.log('listWrap', this.props.todos)
+        
         return(
             <Fragment>
                 <ul>
