@@ -27,6 +27,7 @@ class AddTodo extends React.Component {
         return (
             <div>
                <input type="text" 
+                placeholder="I have to do..."
                 onKeyPress={this.sendData}
                 onChange={this.changeText}
                 value={this.state.text}
@@ -38,6 +39,4 @@ class AddTodo extends React.Component {
 
 export default AddTodo;
 
-   //input에 onChange로하면 enter인지 못함
-    //onKeyDown, onKeyUp은 Keycode값
-    //onKeyDown은 enter도 감지
+  

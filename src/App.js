@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Header from './components/Header';
 import ListWrap from './components/Contents/ListWrap';
 import Footer from './components/Footer';
@@ -88,18 +88,23 @@ class App extends React.Component {
                     addTodo={this.addTodo}
                     toggleAll={this.toggleAll}
                 />
-                <ListWrap 
-                    todos={todos} 
-                    updatingTodo={this.updatingTodo}
-                    deleteTodo={this.deleteTodo}
-                    toggleSelect={this.toggleSelect}
-                />
-                <Footer 
-                    totalCount={this.state.todos.length}
-                    leftCount={leftCount}
-                    todoShow={this.todoShow}
-                    clearCompleted={this.clearCompleted} 
-                />
+                {
+                    todos.length > 0 &&
+                    <Fragment>
+                        <ListWrap 
+                            todos={todos} 
+                            updatingTodo={this.updatingTodo}
+                            deleteTodo={this.deleteTodo}
+                            toggleSelect={this.toggleSelect}
+                        />
+                        <Footer
+                            totalCount={this.state.todos.length}
+                            leftCount={leftCount}
+                            todoShow={this.todoShow}
+                            clearCompleted={this.clearCompleted} 
+                        />
+                    </Fragment>
+                }
             </div>
         )
     }
