@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Left from './Left';
 import Showing from './Showing';
 import ClearCompleted from './ClearCompleted';
@@ -6,6 +6,8 @@ import ClearCompleted from './ClearCompleted';
 class Footer extends React.Component {
     
     render() {
+        const checkedTodo = this.props.todos.filter(todo => todo.completed).length;
+        
         return(
             <div>
                 <Left 
@@ -15,7 +17,12 @@ class Footer extends React.Component {
                 <Showing
                     todoShow={this.props.todoShow}
                 />
-                <ClearCompleted clearCompleted={this.props.clearCompleted}/>
+                {
+                    checkedTodo > 0 &&
+                    <Fragment>
+                        <ClearCompleted clearCompleted={this.props.clearCompleted}/>
+                    </Fragment>
+                }
             </div>
         )
     }

@@ -108,6 +108,7 @@ class App extends React.Component {
                 {this.state.todos.length > 0 &&
                     <Fragment>
                         <Footer
+                        todos={this.state.todos}
                         totalCount={this.state.todos.length}
                         leftCount={leftCount}
                         todoShow={this.todoShow}
