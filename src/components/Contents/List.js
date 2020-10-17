@@ -63,7 +63,7 @@ class List extends React.Component {
                 <input type="checkbox" className="toggle" 
                     onChange={this.toggleSelect} 
                     // checked={this.props.list.completed || this.state.completed}
-                    checked={this.props.list.completed}
+                    checked={this.props.list.completed} 
                 />
                 {
                     this.state.updatingMode === true ?
