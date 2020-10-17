@@ -16,7 +16,8 @@
 **하단**
 - [x] 완료되지 않은 리스트의 개수가 노출된다.
 - [x] todo완료 여부에 따라 all, active, completed버튼이 작동되어 리스트가 보여진다.
-- [x] clear completed버튼을 클릭하면 완료된 리스트가 삭제된다.
+- [x] 체크된 리스트가 하나라도 존재할때만 clear completed버튼이 보여진다.
+    - [x] clear completed버튼을 클릭하면 완료된 리스트가 삭제된다.
 
 
 # 남은 구현사항
