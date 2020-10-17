@@ -1,5 +1,4 @@
 import React from 'react';
-
 class ToggleAll extends React.Component {
     
     toggleAll = e => {

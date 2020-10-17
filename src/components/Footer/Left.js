@@ -1,13 +1,6 @@
 import React, { Fragment } from 'react';
 
-
 class Left extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        }
-    }
     
     render() {
         return(

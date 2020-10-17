@@ -1,5 +1,4 @@
 import React from 'react';
-
 class List extends React.Component {
     constructor(props) {
         super(props);
@@ -10,7 +9,7 @@ class List extends React.Component {
     }
     
     updatingMode = e => {
-        this.setState({ // input나오게 함
+        this.setState({ 
             updatingMode: true
         })
         e.target.focus();
@@ -52,7 +51,6 @@ class List extends React.Component {
     }
     
     
-    
     render() {
         const { text } = this.props.list;
         
@@ -64,7 +62,8 @@ class List extends React.Component {
             >
                 <input type="checkbox" className="toggle" 
                     onChange={this.toggleSelect} 
-                    checked={this.props.list.completed || this.state.completed}
+                    // checked={this.props.list.completed || this.state.completed}
+                    checked={this.props.list.completed}
                 />
                 {
                     this.state.updatingMode === true ?
@@ -77,7 +76,8 @@ class List extends React.Component {
                         />
                     :
                     (
-                        this.state.completed === true || this.props.list.completed === true ?
+                        // this.state.completed === true || this.props.list.completed === true ?
+                        this.props.list.completed === true ?
                             <p className="completed">{text}</p>
                         :
                             <p>{text}</p>

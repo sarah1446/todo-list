@@ -22,7 +22,6 @@ class App extends React.Component {
             ],
         })
     }
-    //render에선 this.addTodo로 해야함.. 클래스에서 this...란?
 
     updatingTodo = (updatedTodo) => {
         const todos = this.state.todos.slice();
@@ -67,8 +66,6 @@ class App extends React.Component {
             todos : [ ...todos],
         })
     }
-    
-    
     
     clearCompleted = () => {
         const todos = this.state.todos.slice();
