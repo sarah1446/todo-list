@@ -31,6 +31,7 @@ class AddTodo extends React.Component {
                 onKeyPress={this.sendData}
                 onChange={this.changeText}
                 value={this.state.text}
+                autoFocus
                 />
             </div>
         )

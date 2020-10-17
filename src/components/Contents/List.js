@@ -77,7 +77,7 @@ class List extends React.Component {
                         />
                     :
                     (
-                        this.state.completed === true ?
+                        this.state.completed === true || this.props.list.completed === true ?
                             <p className="completed">{text}</p>
                         :
                             <p>{text}</p>

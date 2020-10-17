@@ -5,11 +5,6 @@ class clearCompleted extends React.Component {
         this.props.clearCompleted();
     }
     
-    clearCompleted = () => {
-        this.props.clearCompleted();
-    }
-    
-    
     render() {
         return(
             <Fragment>

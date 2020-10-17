@@ -1,19 +1,12 @@
 import React from 'react';
 
 class ToggleAll extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state ={
-            // toggleAll: false
-        }
-    }
     
     toggleAll = e => {
         if(e.target.checked) {
-            console.log('전체선택')
-            this.props.toggleAll()
+            this.props.toggleAll('checked');
         }else{
-            
+            this.props.toggleAll('unchecked');
         }
     }
     

@@ -43,6 +43,19 @@ class App extends React.Component {
         })
     }
  
+    toggleAll = (check) => {
+        const todos = this.state.todos.slice();
+        if(check === 'checked'){
+            todos.forEach(todo => todo.completed = true);
+        }else{
+            todos.forEach(todo => todo.completed = false);
+        }
+        
+        this.setState({
+            todos: [...todos]
+        })
+    }
+    
     toggleSelect = (id) => {
         const todos = this.state.todos.slice();
         for(let i=0; i < todos.length; i++) {
@@ -87,21 +100,21 @@ class App extends React.Component {
                 <Header 
                     addTodo={this.addTodo}
                     toggleAll={this.toggleAll}
+                    todos={this.state.todos}
                 />
-                {
-                    todos.length > 0 &&
+                <ListWrap 
+                    todos={todos} 
+                    updatingTodo={this.updatingTodo}
+                    deleteTodo={this.deleteTodo}
+                    toggleSelect={this.toggleSelect}
+                />
+                {this.state.todos.length > 0 &&
                     <Fragment>
-                        <ListWrap 
-                            todos={todos} 
-                            updatingTodo={this.updatingTodo}
-                            deleteTodo={this.deleteTodo}
-                            toggleSelect={this.toggleSelect}
-                        />
                         <Footer
-                            totalCount={this.state.todos.length}
-                            leftCount={leftCount}
-                            todoShow={this.todoShow}
-                            clearCompleted={this.clearCompleted} 
+                        totalCount={this.state.todos.length}
+                        leftCount={leftCount}
+                        todoShow={this.todoShow}
+                        clearCompleted={this.clearCompleted} 
                         />
                     </Fragment>
                 }
