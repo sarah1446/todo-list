@@ -1,4 +1,23 @@
 import React, { Fragment } from 'react';
+import styled from 'styled-components';
+
+const StatusBtnBox = styled.div`
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    /* border:1px solid blue; */
+    display: inline-block;
+    
+`
+const Button = styled.button`
+    border:1px solid transparent;
+    border-radius:4px;
+    margin-right:4px;
+    &:hover{
+        border:1px solid #ffa5008a;
+    }
+`
 class Showing extends React.Component {
     todoShow = (e) => {
         const btnId = e.target.dataset.id;
@@ -7,11 +26,11 @@ class Showing extends React.Component {
     
     render() {
         return(
-            <Fragment>
-               <button onClick={this.todoShow} data-id="all">All</button>
-               <button onClick={this.todoShow} data-id="active">Active</button>
-               <button onClick={this.todoShow} data-id="completed">Completed</button>
-            </Fragment>
+            <StatusBtnBox>
+               <Button onClick={this.todoShow} data-id="all">All</Button>
+               <Button onClick={this.todoShow} data-id="active">Active</Button>
+               <Button onClick={this.todoShow} data-id="completed">Completed</Button>
+            </StatusBtnBox>
         )
     }
 }

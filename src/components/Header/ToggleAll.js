@@ -1,6 +1,34 @@
 import React from 'react';
-class ToggleAll extends React.Component {
+import styled from 'styled-components';
+import  { BiCheckDouble } from 'react-icons/bi';
+
+
+const ToggleBox = styled.div`
+    position:relative;
+    float:left;
+    width:50px;
+    height:50px;
     
+    > input[id="toggleAll"] + label {
+        display: inline-block;
+        cursor: pointer;
+        opacity:0.2;
+        color:aqua;
+    }
+    input[id="toggleAll"]:checked + label {
+        opacity:1;
+    }
+    input[id="toggleAll"] {
+        display: none;
+    }
+`
+
+const Label = styled.label`
+    width: 40px;
+    height: 40px;
+    margin:5px 0 0 10px;
+`
+class ToggleAll extends React.Component {
     toggleAll = e => {
         if(e.target.checked) {
             this.props.toggleAll('checked');
@@ -11,13 +39,15 @@ class ToggleAll extends React.Component {
     
     render() {
         return(
-            <div>
+            <ToggleBox>
                 <input 
                     type="checkbox" 
                     onClick={this.toggleAll}
                     className="toggleAll" 
+                    id="toggleAll"
                 />
-            </div>
+                <Label for="toggleAll"><BiCheckDouble size="35px"/></Label>
+            </ToggleBox>
         )
     }
 }

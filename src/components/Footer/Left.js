@@ -1,13 +1,20 @@
 import React, { Fragment } from 'react';
+import styled from 'styled-components';
 
-class Left extends React.Component {
+const LeftCount = styled.div`
+    float:left;
     
+    span{
+        font-weight:300;
+    }
+`
+class Left extends React.Component {
     render() {
         return(
-            <Fragment>
-                <div> {this.props.leftCount} 남음</div>
-                <div> 총 개수: {this.props.totalCount}</div>
-            </Fragment>
+            <LeftCount>
+                <span> {this.props.leftCount} item left</span>
+                {/*<div> 총 개수: {this.props.totalCount}</div>*/}
+            </LeftCount>
         )
     }
 }

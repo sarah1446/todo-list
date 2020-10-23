@@ -1,4 +1,60 @@
 import React from 'react';
+import styled from 'styled-components';
+import  { CgClose } from 'react-icons/cg';
+import  { IoIosCheckmarkCircleOutline } from 'react-icons/io';
+
+const Li = styled.li`
+    overflow:hidden;
+    border-bottom:1px solid #eee;
+    > div{
+        float:left;
+        min-height:50px;
+    }
+    &:hover span{
+        opacity:1;
+    }
+`
+
+const Toggle = styled.div` 
+    width:50px;
+`
+
+const TodoText = styled.div`
+    position:relative;
+    width:calc(100% - 100px);
+    > p {
+        font-size: 1.25rem;
+        padding: 11px 5px;
+        line-height:1.7rem;
+    }
+    > input {
+        position: absolute;
+        left: 0;
+        border:1px solid red;
+        width: calc(100% + 50px);
+        height: 50px;
+        line-height: 50px;
+        padding: 0 7px;
+        font-size: 1.2rem;
+        background-color: #fff;
+        border:1px solid #ccc;
+        box-shadow: 1px 1px 2px #ccc inset;
+    } 
+`
+const Done = styled.p`
+   text-decoration:line-through; 
+   color:#ccc; 
+`
+
+const DeleteTodo = styled.div`
+    width: 50px;
+    text-align: center;
+    > span {
+        opacity:0;
+        display: block;
+        line-height: 50px;
+    }
+`
 class List extends React.Component {
     constructor(props) {
         super(props);
@@ -55,39 +111,42 @@ class List extends React.Component {
         const { text } = this.props.list;
         
         return(
-            <li className="todo-list"
+            <Li className="todo-list"
                 onDoubleClick={this.updatingMode}
                 onMouseOver={this.listHover}
                 onMouseOut={this.listHoverOut}
             >
-                <input type="checkbox" className="toggle" 
-                    onChange={this.toggleSelect} 
-                    // checked={this.props.list.completed || this.state.completed}
-                    checked={this.props.list.completed} 
-                />
-                {
-                    this.state.updatingMode === true ?
-                        <input type="text" 
-                            className="todo-input"
-                            defaultValue={text} 
-                            onKeyDown={this.updatingContent}
-                            onBlur={this.hideInput}
-                            autoFocus
-                        />
-                    :
-                    (
-                        // this.state.completed === true || this.props.list.completed === true ?
-                        this.props.list.completed === true ?
-                            <p className="completed">{text}</p>
+                <Toggle>
+                    <input type="checkbox" className="toggle" 
+                        onChange={this.toggleSelect} 
+                        // checked={this.props.list.completed || this.state.completed}
+                        checked={this.props.list.completed} 
+                    />
+                </Toggle>
+                <TodoText>
+                    {
+                        this.state.updatingMode === true ?
+                            <input type="text" 
+                                className="todo-input"
+                                defaultValue={text} 
+                                onKeyDown={this.updatingContent}
+                                onBlur={this.hideInput}
+                                autoFocus
+                            />
                         :
-                            <p>{text}</p>
-                    )
-                }
-                <span 
-                className="deleteBtn"
-                onClick={this.deleteTodo}
-                >x</span>
-            </li>
+                        (
+                            // this.state.completed === true || this.props.list.completed === true ?
+                            this.props.list.completed === true ?
+                                <Done>{text}</Done>
+                            :
+                                <p>{text}</p>
+                        )
+                    }
+                </TodoText>
+                <DeleteTodo>
+                    <span className="deleteBtn" onClick={this.deleteTodo}><CgClose /></span>
+                </DeleteTodo>
+            </Li>
         )
     }
 }

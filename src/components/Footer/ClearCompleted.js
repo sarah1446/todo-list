@@ -1,5 +1,14 @@
 import React, { Fragment } from 'react';
+import styled from 'styled-components';
 
+const CompletedClearBox = styled.div`
+    float: right;
+`
+const Button = styled.button`
+    &:hover {
+        text-decoration: underline;
+    }
+`
 class clearCompleted extends React.Component {
     clearCompleted = () => {
         this.props.clearCompleted();
@@ -7,9 +16,9 @@ class clearCompleted extends React.Component {
     
     render() {
         return(
-            <Fragment>
-                <button onClick={this.clearCompleted}>Completed Clear</button>
-            </Fragment>
+            <CompletedClearBox>
+                <Button onClick={this.clearCompleted}>Completed Clear</Button>
+            </CompletedClearBox>
         )
     }
 }

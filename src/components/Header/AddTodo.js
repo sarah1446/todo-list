@@ -1,4 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const SearchBox = styled.div`
+    float:right;
+    padding: 10px 10px 10px 4px;
+    width: calc(100% - 50px);
+    height: 50px;
+`
+
+const Input = styled.input`
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+    ::placeholder{
+        font-size:1.3rem;
+        line-height:30px;
+        font-style:italic;
+    }
+`
+
 
 class AddTodo extends React.Component {
     constructor(props) {
@@ -25,15 +45,15 @@ class AddTodo extends React.Component {
 
     render(){
         return (
-            <div>
-               <input type="text" 
+            <SearchBox>
+               <Input type="text" 
                 placeholder="I have to do..."
                 onKeyPress={this.sendData}
                 onChange={this.changeText}
                 value={this.state.text}
                 autoFocus
                 />
-            </div>
+            </SearchBox>
         )
     }
 }
