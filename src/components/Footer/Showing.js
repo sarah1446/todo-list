@@ -6,7 +6,6 @@ const StatusBtnBox = styled.div`
     left:50%;
     top:50%;
     transform:translate(-50%, -50%);
-    /* border:1px solid blue; */
     display: inline-block;
     
 `
@@ -18,10 +17,17 @@ const Button = styled.button`
         border:1px solid #ffa5008a;
     }
 `
+
 class Showing extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            // selected: 'all'
+        }
+    }
     todoShow = (e) => {
         const btnId = e.target.dataset.id;
-        this.props.todoShow(btnId)
+        this.props.todoShow(btnId);
     }
     
     render() {

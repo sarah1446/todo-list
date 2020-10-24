@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 const TodoApp = styled.div`
     width:500px;
-    /* border:1px solid red; */
     margin:50px auto;
 `
 
@@ -28,16 +27,11 @@ class App extends React.Component {
         this.state = {
             todos : [
                 {
-                text: '공부하기',
-                id: 1,
-                completed:false
-            },
-            {
-                text: '집청소하기',
-                id: 2,
-                completed:true
-            }
-        ],
+                    text:'hello',
+                    id:1,
+                    completed: false
+                }
+            ],
             todoShowBtn: 'all'
         }
     }

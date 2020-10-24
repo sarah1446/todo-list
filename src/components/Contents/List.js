@@ -16,7 +16,29 @@ const Li = styled.li`
 `
 
 const Toggle = styled.div` 
+    position:relative;
     width:50px;
+    top:0;
+    bottom:0;
+    text-align: center;
+    
+    > input + label {
+        display: inline-block;
+        cursor: pointer;
+        opacity:0.2;
+        
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        margin: -15px 0 0 -15px;
+
+    }
+    input:checked + label {
+        opacity:1;
+    }
+    input {
+        display: none;
+    }
 `
 
 const TodoText = styled.div`
@@ -30,7 +52,6 @@ const TodoText = styled.div`
     > input {
         position: absolute;
         left: 0;
-        border:1px solid red;
         width: calc(100% + 50px);
         height: 50px;
         line-height: 50px;
@@ -49,6 +70,7 @@ const Done = styled.p`
 const DeleteTodo = styled.div`
     width: 50px;
     text-align: center;
+    cursor: pointer;
     > span {
         opacity:0;
         display: block;
@@ -108,8 +130,7 @@ class List extends React.Component {
     
     
     render() {
-        const { text } = this.props.list;
-        
+        const { text, id } = this.props.list;
         return(
             <Li className="todo-list"
                 onDoubleClick={this.updatingMode}
@@ -119,9 +140,10 @@ class List extends React.Component {
                 <Toggle>
                     <input type="checkbox" className="toggle" 
                         onChange={this.toggleSelect} 
-                        // checked={this.props.list.completed || this.state.completed}
                         checked={this.props.list.completed} 
+                        id={id}
                     />
+                    <label for={id}><IoIosCheckmarkCircleOutline size="30px"/></label>
                 </Toggle>
                 <TodoText>
                     {
@@ -135,7 +157,6 @@ class List extends React.Component {
                             />
                         :
                         (
-                            // this.state.completed === true || this.props.list.completed === true ?
                             this.props.list.completed === true ?
                                 <Done>{text}</Done>
                             :
@@ -144,7 +165,7 @@ class List extends React.Component {
                     }
                 </TodoText>
                 <DeleteTodo>
-                    <span className="deleteBtn" onClick={this.deleteTodo}><CgClose /></span>
+                    <span onClick={this.deleteTodo}><CgClose /></span>
                 </DeleteTodo>
             </Li>
         )
