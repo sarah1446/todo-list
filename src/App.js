@@ -25,13 +25,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos : [
-                {
-                    text:'hello',
-                    id:1,
-                    completed: false
-                }
-            ],
+            todos : [],
             todoShowBtn: 'all'
         }
     }
@@ -92,7 +86,8 @@ class App extends React.Component {
     clearCompleted = () => {
         const todos = this.state.todos.slice();
         this.setState({
-            todos: [...todos.filter((todo)=> !todo.completed)]
+            todos: [...todos.filter((todo)=> !todo.completed)],
+            todoShowBtn: 'all'
         })
     }
     
@@ -116,7 +111,9 @@ class App extends React.Component {
         
         return(
             <TodoApp>
-                <Title>🔥 Todos 🔥</Title>
+                <Title>
+                    <span role="img" aria-label="fire">🔥</span> Todos <span role="img" aria-label="fire">🔥</span>
+                </Title>
                 <Content>
                     <Header 
                         addTodo={this.addTodo}

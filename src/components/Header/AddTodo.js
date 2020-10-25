@@ -19,8 +19,6 @@ const Input = styled.input`
         color:#ccc;
     }
 `
-
-
 class AddTodo extends React.Component {
     constructor(props) {
         super(props);

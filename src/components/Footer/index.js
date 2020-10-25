@@ -12,7 +12,6 @@ const TodoFooter = styled.div`
     height:40px;
     
 `
-
 class Footer extends React.Component {
     
     render() {
