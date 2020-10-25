@@ -33,20 +33,23 @@ class Showing extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // selected: 'all'
+            selected: 'all'
         }
     }
     todoShow = (e) => {
         const btnId = e.target.dataset.id;
         this.props.todoShow(btnId);
+        this.setState({
+            selected: btnId
+        })
     }
     
     render() {
         return(
             <StatusBtnBox>
-               <Button onClick={this.todoShow} data-id="all" selected>All</Button>
-               <Button onClick={this.todoShow} data-id="active">Active</Button>
-               <Button onClick={this.todoShow} data-id="completed">Completed</Button>
+               <Button onClick={this.todoShow} data-id="all" selected ={this.state.selected === 'all' ? true : null}>All</Button>
+               <Button onClick={this.todoShow} data-id="active" selected ={this.state.selected === 'active' ? true : null}>Active</Button>
+               <Button onClick={this.todoShow} data-id="completed" selected ={this.state.selected === 'completed' ? true : null}>Completed</Button>
             </StatusBtnBox>
         )
     }
