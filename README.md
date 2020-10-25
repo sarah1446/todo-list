@@ -21,7 +21,7 @@
 
 
 # 남은 구현사항
-- [x] styled-component 스타일(feature/style브랜치에서 작업 완료)
+- [x] styled-component 스타일(feature/style브랜치에서 작업 후 master브랜치로 merge완료)
 - [ ] 함수형으로 리팩토링(작업중)
 - [ ] 리덕스 
 
