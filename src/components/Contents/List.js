@@ -145,7 +145,7 @@ class List extends React.Component {
                         checked={this.props.list.completed} 
                         id={id}
                     />
-                    <label for={id}><IoIosCheckmarkCircleOutline size="30px" color="#e91e63"/></label>
+                    <label htmlFor={id}><IoIosCheckmarkCircleOutline size="30px" color="#e91e63"/></label>
                 </Toggle>
                 <TodoText>
                     {

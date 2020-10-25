@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 
 const StatusBtnBox = styled.div`
@@ -7,7 +7,6 @@ const StatusBtnBox = styled.div`
     top:50%;
     transform:translate(-50%, -50%);
     display: inline-block;
-    
 `
 const Button = styled.button`
     border:1px solid transparent;
@@ -15,7 +14,6 @@ const Button = styled.button`
     margin-right:4px;
     opacity: 0.3;
     color: #E91E63;
-    
     
     &:hover{
         opacity: 0.7;
@@ -38,7 +36,7 @@ class Showing extends React.Component {
     }
     todoShow = (e) => {
         const btnId = e.target.dataset.id;
-        this.props.todoShow(btnId);
+        this.props.todoShow(btnId); 
         this.setState({
             selected: btnId
         })

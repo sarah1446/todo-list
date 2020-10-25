@@ -46,7 +46,7 @@ class ToggleAll extends React.Component {
                     className="toggleAll" 
                     id="toggleAll"
                 />
-                <Label for="toggleAll"><BiCheckDouble size="35px"/></Label>
+                <Label htmlFor="toggleAll"><BiCheckDouble size="35px"/></Label>
             </ToggleBox>
         )
     }
