@@ -16,6 +16,7 @@ const Input = styled.input`
         font-size:1.3rem;
         line-height:30px;
         font-style:italic;
+        color:#ccc;
     }
 `
 

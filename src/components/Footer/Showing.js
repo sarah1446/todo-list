@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StatusBtnBox = styled.div`
     position: absolute;
@@ -13,9 +13,20 @@ const Button = styled.button`
     border:1px solid transparent;
     border-radius:4px;
     margin-right:4px;
+    opacity: 0.3;
+    color: #E91E63;
+    
+    
     &:hover{
-        border:1px solid #ffa5008a;
+        opacity: 0.7;
+        color: #E91E63;
     }
+
+    ${props => props.selected && css`
+        border: 1px solid #E91E63;
+        opacity: 0.7;
+        color: #E91E63;
+    `};
 `
 
 class Showing extends React.Component {
@@ -33,7 +44,7 @@ class Showing extends React.Component {
     render() {
         return(
             <StatusBtnBox>
-               <Button onClick={this.todoShow} data-id="all">All</Button>
+               <Button onClick={this.todoShow} data-id="all" selected>All</Button>
                <Button onClick={this.todoShow} data-id="active">Active</Button>
                <Button onClick={this.todoShow} data-id="completed">Completed</Button>
             </StatusBtnBox>

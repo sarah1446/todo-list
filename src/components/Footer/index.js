@@ -8,7 +8,7 @@ const TodoFooter = styled.div`
     position:relative;
     overflow:hidden;
     /* border:1px solid red; */
-    padding:10px 8px;
+    padding:10px 13px;
     height:40px;
     
 `

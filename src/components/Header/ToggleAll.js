@@ -13,10 +13,10 @@ const ToggleBox = styled.div`
         display: inline-block;
         cursor: pointer;
         opacity:0.2;
-        color:aqua;
+        color:#e91e63;
     }
     input[id="toggleAll"]:checked + label {
-        opacity:1;
+        opacity: 0.7;
     }
     input[id="toggleAll"] {
         display: none;

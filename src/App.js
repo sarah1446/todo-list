@@ -13,9 +13,9 @@ const TodoApp = styled.div`
 const Title = styled.p`
    font-size: 3.5rem;
     font-weight: 500;
-    color: brown;
+    color: #e91e63;
     text-align: center;
-    padding: 0.8rem 0;
+    padding: 1.5rem 0;
 `
 const Content = styled.div`
     background-color:#fff;
@@ -116,7 +116,7 @@ class App extends React.Component {
         
         return(
             <TodoApp>
-                <Title>Todos</Title>
+                <Title>🔥 Todos 🔥</Title>
                 <Content>
                     <Header 
                         addTodo={this.addTodo}

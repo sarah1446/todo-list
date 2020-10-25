@@ -25,7 +25,7 @@ const Toggle = styled.div`
     > input + label {
         display: inline-block;
         cursor: pointer;
-        opacity:0.2;
+        opacity:0.1;
         
         position: absolute; 
         top: 50%; 
@@ -34,7 +34,7 @@ const Toggle = styled.div`
 
     }
     input:checked + label {
-        opacity:1;
+        opacity:0.7;
     }
     input {
         display: none;
@@ -51,6 +51,7 @@ const TodoText = styled.div`
     }
     > input {
         position: absolute;
+        z-index:99;
         left: 0;
         width: calc(100% + 50px);
         height: 50px;
@@ -71,6 +72,7 @@ const DeleteTodo = styled.div`
     width: 50px;
     text-align: center;
     cursor: pointer;
+    opacity:0.9;
     > span {
         opacity:0;
         display: block;
@@ -143,7 +145,7 @@ class List extends React.Component {
                         checked={this.props.list.completed} 
                         id={id}
                     />
-                    <label for={id}><IoIosCheckmarkCircleOutline size="30px"/></label>
+                    <label for={id}><IoIosCheckmarkCircleOutline size="30px" color="#e91e63"/></label>
                 </Toggle>
                 <TodoText>
                     {
@@ -165,7 +167,7 @@ class List extends React.Component {
                     }
                 </TodoText>
                 <DeleteTodo>
-                    <span onClick={this.deleteTodo}><CgClose /></span>
+                    <span onClick={this.deleteTodo}><CgClose color="#e91e63"/></span>
                 </DeleteTodo>
             </Li>
         )
