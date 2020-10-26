@@ -1,3 +1,7 @@
+# 실제 구현내용
+![todo-list](https://user-images.githubusercontent.com/35885674/97123670-381af980-1770-11eb-9ec6-0a61005dae95.gif)
+
+
 # 요구사항
 
 **헤더**
