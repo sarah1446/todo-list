@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const SearchBox = styled.div`
     float:right;
-    padding: 10px 10px 10px 4px;
+    padding: 0 10px 0 3px;
     width: calc(100% - 50px);
     height: 50px;
 `
