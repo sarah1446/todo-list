@@ -1,6 +1,23 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+class Showing extends React.Component {
+    todoShow = (e) => {
+        const btnId = e.target.dataset.id;
+        this.props.todoShow(btnId); 
+    }
+    
+    render() {
+        return(
+            <StatusBtnBox>
+               <Button onClick={this.todoShow} data-id="all" selected ={this.props.todoShowBtn === 'all' }>All</Button>
+               <Button onClick={this.todoShow} data-id="active" selected ={this.props.todoShowBtn === 'active' }>Active</Button>
+               <Button onClick={this.todoShow} data-id="completed" selected ={this.props.todoShowBtn === 'completed' }>Completed</Button>
+            </StatusBtnBox>
+        )
+    }
+}
+
 const StatusBtnBox = styled.div`
     position: absolute;
     left:50%;
@@ -26,31 +43,5 @@ const Button = styled.button`
         color: #E91E63;
     `};
 `
-
-class Showing extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selected: 'all'
-        }
-    }
-    todoShow = (e) => {
-        const btnId = e.target.dataset.id;
-        this.props.todoShow(btnId); 
-        this.setState({
-            selected: btnId
-        })
-    }
-    
-    render() {
-        return(
-            <StatusBtnBox>
-               <Button onClick={this.todoShow} data-id="all" selected ={this.state.selected === 'all' ? true : null}>All</Button>
-               <Button onClick={this.todoShow} data-id="active" selected ={this.state.selected === 'active' ? true : null}>Active</Button>
-               <Button onClick={this.todoShow} data-id="completed" selected ={this.state.selected === 'completed' ? true : null}>Completed</Button>
-            </StatusBtnBox>
-        )
-    }
-}
 
 export default Showing;

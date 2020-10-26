@@ -1,24 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SearchBox = styled.div`
-    float:right;
-    padding: 0 10px 0 3px;
-    width: calc(100% - 50px);
-    height: 50px;
-`
-
-const Input = styled.input`
-    width: 100%;
-    height: 100%;
-    font-size: 1.3rem;
-    ::placeholder{
-        font-size:1.3rem;
-        line-height:30px;
-        font-style:italic;
-        color:#ccc;
-    }
-`
 class AddTodo extends React.Component {
     constructor(props) {
         super(props);
@@ -56,6 +38,25 @@ class AddTodo extends React.Component {
         )
     }
 }
+
+const SearchBox = styled.div`
+    float:right;
+    padding: 0 10px 0 3px;
+    width: calc(100% - 50px);
+    height: 50px;
+`
+
+const Input = styled.input`
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+    ::placeholder{
+        font-size:1.3rem;
+        line-height:30px;
+        font-style:italic;
+        color:#ccc;
+    }
+`
 
 export default AddTodo;
 

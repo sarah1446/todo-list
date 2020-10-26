@@ -5,22 +5,6 @@ import Footer from './components/Footer';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
-const TodoApp = styled.div`
-    width:500px;
-    margin:50px auto;
-`
-
-const Title = styled.p`
-   font-size: 3.5rem;
-    font-weight: 500;
-    color: #e91e63;
-    text-align: center;
-    padding: 1.5rem 0;
-`
-const Content = styled.div`
-    background-color:#fff;
-    box-shadow: 1px 3px 9px 7px #f1f1f1;
-`
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -55,6 +39,7 @@ class App extends React.Component {
         const todos = this.state.todos.slice();
         this.setState({
             todos: [...todos.filter(list => list !== deleteTodo)],
+            todoShowBtn: 'all'
         })
     }
  
@@ -130,6 +115,7 @@ class App extends React.Component {
                         <Fragment>
                             <Footer
                             todos={this.state.todos}
+                            todoShowBtn={this.state.todoShowBtn}
                             totalCount={this.state.todos.length}
                             leftCount={leftCount}
                             todoShow={this.todoShow}
@@ -142,6 +128,24 @@ class App extends React.Component {
         )
     }
 }
+
+const TodoApp = styled.div`
+    width:500px;
+    margin:50px auto;
+`
+
+const Title = styled.p`
+   font-size: 3.5rem;
+    font-weight: 500;
+    color: #e91e63;
+    text-align: center;
+    padding: 1.5rem 0;
+`
+
+const Content = styled.div`
+    background-color:#fff;
+    box-shadow: 1px 3px 9px 7px #f1f1f1;
+`
 
 export default App;
 

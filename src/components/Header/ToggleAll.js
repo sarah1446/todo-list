@@ -2,6 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import  { BiCheckDouble } from 'react-icons/bi';
 
+class ToggleAll extends React.Component {
+    toggleAll = e => {
+        if(e.target.checked) {
+            this.props.toggleAll('checked');
+        }else{
+            this.props.toggleAll('unchecked');
+        }
+    }
+    
+    render() {
+        return(
+            <ToggleBox>
+                <input 
+                    type="checkbox" 
+                    onClick={this.toggleAll}
+                    className="toggleAll" 
+                    id="toggleAll"
+                />
+                <Label htmlFor="toggleAll"><BiCheckDouble size="35px"/></Label>
+            </ToggleBox>
+        )
+    }
+}
 
 const ToggleBox = styled.div`
     position:relative;
@@ -28,28 +51,5 @@ const Label = styled.label`
     height: 40px;
     margin:5px 0 0 10px;
 `
-class ToggleAll extends React.Component {
-    toggleAll = e => {
-        if(e.target.checked) {
-            this.props.toggleAll('checked');
-        }else{
-            this.props.toggleAll('unchecked');
-        }
-    }
-    
-    render() {
-        return(
-            <ToggleBox>
-                <input 
-                    type="checkbox" 
-                    onClick={this.toggleAll}
-                    className="toggleAll" 
-                    id="toggleAll"
-                />
-                <Label htmlFor="toggleAll"><BiCheckDouble size="35px"/></Label>
-            </ToggleBox>
-        )
-    }
-}
 
 export default ToggleAll;

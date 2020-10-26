@@ -4,14 +4,6 @@ import Showing from './Showing';
 import ClearCompleted from './ClearCompleted';
 import styled from 'styled-components';
 
-const TodoFooter = styled.div`
-    position:relative;
-    overflow:hidden;
-    /* border:1px solid red; */
-    padding:10px 13px;
-    height:40px;
-    
-`
 class Footer extends React.Component {
     
     render() {
@@ -25,6 +17,7 @@ class Footer extends React.Component {
                 />
                 <Showing
                     todoShow={this.props.todoShow}
+                    todoShowBtn={this.props.todoShowBtn}
                 />
                 {
                     checkedTodo > 0 &&
@@ -37,4 +30,10 @@ class Footer extends React.Component {
     }
 }
 
+const TodoFooter = styled.div`
+    position:relative;
+    overflow:hidden;
+    padding:10px 13px;
+    height:40px;
+`
 export default Footer;

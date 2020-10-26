@@ -3,10 +3,6 @@ import AddTodo from './AddTodo';
 import ToggleAll from './ToggleAll';
 import styled from 'styled-components';
 
-const TodoHeader  = styled.div`
-    overflow:hidden;
-    border-bottom:1px solid #eee;
-`
 class Header extends React.Component {
     render() {
         const todos = this.props.todos;
@@ -22,5 +18,10 @@ class Header extends React.Component {
         )
     }
 }
+
+const TodoHeader  = styled.div`
+    overflow:hidden;
+    border-bottom:1px solid #eee;
+`
 
 export default Header;

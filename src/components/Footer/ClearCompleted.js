@@ -1,14 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const CompletedClearBox = styled.div`
-    float: right;
-`
-const Button = styled.button`
-    &:hover {
-        text-decoration: underline;
-    }
-`
 class clearCompleted extends React.Component {
     clearCompleted = () => {
         this.props.clearCompleted();
@@ -23,4 +14,12 @@ class clearCompleted extends React.Component {
     }
 }
 
-export default clearCompleted;
+const CompletedClearBox = styled.div`
+    float: right;
+`
+const Button = styled.button`
+    &:hover {
+        text-decoration: underline;
+    }
+`
+    export default clearCompleted;
